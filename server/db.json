@@ -1,7 +1,41 @@
 {
-    "posts": {
-        "id": 0,
-        "title": "Post 0",
-        "text": "A complete log of this run can be found"
-    }
+    "posts": [
+        {
+            "id": "0000",
+            "title": "Post 0",
+            "text": "A complete log of this run can be found"
+        },
+        {
+            "id": "1111",
+            "title": "Post 1",
+            "text": "Tudey aym goving tu sheu U hau tu yus jayson server"
+        },
+        {
+            "id": "95ca",
+            "title": "New post",
+            "text": "text text text"
+        },
+        {
+            "id": "c4bf",
+            "title": "New post",
+            "text": "text text text"
+        },
+        {
+            "id": "4394",
+            "title": "New post",
+            "text": "text text text"
+        }
+    ],
+    "comments": [
+        {
+            "id": "0000",
+            "text": "This post sucks",
+            "postId": "0000"
+        },
+        {
+            "id": "0000",
+            "text": "This post is amazing",
+            "postId": "0000"
+        }
+    ]
 }
