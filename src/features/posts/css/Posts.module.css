@@ -1,22 +1,33 @@
-.post {
-    width: 100%;
-    height: 340px;
-    background-color: var(--secondary-surface-color);
+.postWrapper {
     display: flex;
     flex-direction: column;
+    gap: 40px;
+}
+
+.postSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     border-radius: 10px;
-    padding: 20px;
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .title {
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .text {
     font-size: 18px;
+    padding-bottom: 20px;
 }
 
 .bar {
@@ -30,5 +41,14 @@
     color: var(--secondary-text-color);
 }
 
-.button {
+.commentsSection {
+}
+
+.commentsBlock {
+}
+
+.commentsList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

@@ -2,7 +2,14 @@ import React from "react"
 import styles from "./Header.module.css"
 
 const Header: React.FC = () => {
-    return <header className={styles.header}></header>
+    return (
+        <header className={styles.header}>
+            <div className={styles.logo}>
+                <a href="/">Blog 0</a>
+            </div>
+            <button className={styles.button}>Create</button>
+        </header>
+    )
 }
 
 export default Header
