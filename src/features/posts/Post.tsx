@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./css/Posts.module.css"
+import styles from "./css/Post.module.css"
 import Comment from "./Comment"
 
 const Post: React.FC = () => {
@@ -30,16 +30,26 @@ const Post: React.FC = () => {
                 </div>
             </section>
             <section className={styles.commentsSection}>
-                <div className={styles.bar}></div>
+                <h3 className={styles.commentsTitle}>
+                    Comments <span className={styles.number}>2</span>
+                </h3>
+                <div className={styles.bar}>
+                    <input
+                        type="text"
+                        placeholder="Leave a comment..."
+                        className={styles.commentInput}
+                    />
+                    <button className={styles.commentButton}>&#8594;</button>
+                </div>
                 <div className={styles.commentsBlock}>
                     <ul className={styles.commentsList}>
-                        <li className="commentsListElement">
+                        <li className={styles.commentsListElement}>
                             <Comment />
                         </li>
-                        <li className="commentsListElement">
+                        <li className={styles.commentsListElement}>
                             <Comment />
                         </li>
-                        <li className="commentsListElement">
+                        <li className={styles.commentsListElement}>
                             <Comment />
                         </li>
                     </ul>

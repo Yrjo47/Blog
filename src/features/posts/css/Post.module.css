@@ -1,0 +1,89 @@
+.postWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.postSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.text {
+    padding-bottom: 20px;
+}
+
+.commentsTitle {
+    padding: 12px 0;
+    font-size: 1.25rem;
+}
+
+.number {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    padding-left: 6px;
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+
+.commentInput {
+    flex-grow: 1;
+    height: 100%;
+    padding: 0 8px;
+    font-size: 1rem;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid var(--accent-color);
+    border-right: none;
+    background-color: var(--primary-surface-color);
+}
+
+.commentButton {
+    background-color: var(--accent-color);
+    color: var(--primary-surface-color);
+    width: 32px;
+    height: 100%;
+    font-size: 1rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.comments {
+    font-size: 16px;
+    color: var(--secondary-text-color);
+}
+
+.commentsSection {
+}
+
+.commentsBlock {
+    padding-top: 28px;
+}
+
+.commentsList {
+    list-style: circle;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-left: 20px;
+}
+
+.commentsListElement {
+}

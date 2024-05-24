@@ -12,14 +12,14 @@
 
 body {
     min-height: 100vh;
-    font-size: 1.5rem;
+    font-size: 1.125rem;
 }
 
 main {
     max-width: 800px;
-    min-height: calc(100vh - 320px);
+    min-height: calc(100vh - 280px);
     margin: auto;
-    padding: 80px 0;
+    padding: 80px 60px;
 }
 
 button {

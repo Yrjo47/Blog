@@ -4,10 +4,11 @@ import style from "./css/Comment.module.css"
 const Comment: React.FC = () => {
     return (
         <div className={style.comment}>
-            <span className={style.author}>Author</span>
-            <p className="text">
+            <h4 className={style.author}>Author</h4>
+            <p className={style.text}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit repudiandae eligendi natus?
+                Reprehenderit repudiandae eligendi natus? Uorem ipsum dolor sit
+                amet consectetur adipisicing elit. Nihil, corporis? fafafsa.
             </p>
         </div>
     )

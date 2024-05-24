@@ -1,25 +1,31 @@
 .header {
     width: 100%;
-    height: 120px;
+    height: 60px;
     background-color: var(--accent-color);
+}
+
+.content {
+    max-width: 800px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: auto;
     padding: 0 60px;
 }
 
 .logo {
-    font-size: 40px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--primary-surface-color);
 }
 
 .button {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--accent-color);
     background: var(--primary-surface-color);
-    padding: 10px 32px;
+    padding: 6px 14px;
     border-radius: 8px;
 }
 
