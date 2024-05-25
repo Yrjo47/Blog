@@ -17,7 +17,7 @@ body {
 
 main {
     max-width: 800px;
-    min-height: calc(100vh - 280px);
+    min-height: calc(100vh - 260px);
     margin: auto;
     padding: 80px 60px;
 }

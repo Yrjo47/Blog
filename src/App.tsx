@@ -10,7 +10,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Layout />}>
                 <Route index element={<PostList />} />
                 {/* <Route path="/post/:postId" element={<Post />} /> */}
-                <Route path="/post" element={<Post />} />
+                <Route path="/post/:id" element={<Post />} />
             </Route>
             <Route path="/*" element={<PageNotFound />} />
         </Routes>

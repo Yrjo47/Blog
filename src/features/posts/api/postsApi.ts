@@ -1,17 +1,24 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { IPost, IPostMutation, IComment } from "./types"
+import { IPost, IPostMutation, IComment, IPostWithComments } from "./types"
 
 export const postsApi = createApi({
     reducerPath: "postsApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "https://localhost:3001/" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
     tagTypes: ["Post", "Comment"],
     endpoints: (builder) => ({
         getAllPosts: builder.query<IPost[], void>({
             query: () => "posts",
             providesTags: ["Post"],
         }),
+        getAllPostsWithComments: builder.query<IPostWithComments[], void>({
+            query: () => "posts?_embed=comments",
+        }),
+        getPostWithCommentsById: builder.query<IPostWithComments, string>({
+            query: (id) => `posts?_embed=comments&id=${id}`,
+            transformResponse: (response: IPostWithComments[]) => response[0],
+        }),
         getPostById: builder.query<IPost, string>({
-            query: (id) => `posts?id=${id}`,
+            query: (id) => `posts/${id}`,
             providesTags: ["Post"],
         }),
         addPost: builder.mutation<IPost, IPostMutation>({
@@ -30,7 +37,7 @@ export const postsApi = createApi({
             query: (body) => ({
                 url: `comments`,
                 method: "POST",
-                body: body.comment,
+                body: body.text,
             }),
             invalidatesTags: ["Comment"],
         }),
@@ -39,7 +46,10 @@ export const postsApi = createApi({
 
 export const {
     useGetAllPostsQuery,
+    useGetPostByIdQuery,
     useGetCommentsByPostIdQuery,
     useAddCommentByPostIdMutation,
     useAddPostMutation,
+    useGetAllPostsWithCommentsQuery,
+    useGetPostWithCommentsByIdQuery,
 } = postsApi

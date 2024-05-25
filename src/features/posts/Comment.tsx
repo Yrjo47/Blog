@@ -1,15 +1,16 @@
 import React from "react"
 import style from "./css/Comment.module.css"
 
-const Comment: React.FC = () => {
+type IProps = {
+    author: string
+    text: string
+}
+
+const Comment: React.FC<IProps> = (props) => {
     return (
         <div className={style.comment}>
-            <h4 className={style.author}>Author</h4>
-            <p className={style.text}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit repudiandae eligendi natus? Uorem ipsum dolor sit
-                amet consectetur adipisicing elit. Nihil, corporis? fafafsa.
-            </p>
+            <h4 className={style.author}>{props.author}</h4>
+            <p className={style.text}>{props.text}</p>
         </div>
     )
 }
