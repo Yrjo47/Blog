@@ -11,13 +11,6 @@ export type IComment = {
     postId: string
 }
 
-export type IPostWithComments = {
-    id: string
-    title: string
-    text: string
-    comments: IComment[]
-}
-
 export type IPostMutation = {
     title: string
     text: string

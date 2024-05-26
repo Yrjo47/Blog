@@ -6,7 +6,6 @@ type IProps = {
     title: string
     text: string
     id: string
-    comments: number
 }
 
 const PostExcerpt: React.FC<IProps> = (props: IProps) => {
@@ -17,9 +16,7 @@ const PostExcerpt: React.FC<IProps> = (props: IProps) => {
                 <p className={styles.text}>{props.text}</p>
             </div>
             <div className={styles.bar}>
-                <span className={styles.comments}>
-                    {props.comments} comments
-                </span>
+                <span className={styles.comments}>XXX comments</span>
                 <Link to={`/post/${props.id}`} className={styles.button}>
                     Learn more &#x3e;&#x3e;
                 </Link>
