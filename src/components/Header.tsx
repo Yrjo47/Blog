@@ -9,7 +9,9 @@ const Header: React.FC = () => {
                 <div className={styles.logo}>
                     <Link to="/">Blog 0</Link>
                 </div>
-                <button className={styles.button}>Create</button>
+                <Link to="/post" className={styles.button}>
+                    Add +
+                </Link>
             </div>
         </header>
     )
