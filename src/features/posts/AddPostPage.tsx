@@ -1,42 +1,50 @@
-import React from "react"
+import React, { useRef } from "react"
 import styles from "./css/AddPostPage.module.css"
-import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form"
+import { ContentEditableEvent } from "react-contenteditable"
 import { useAddPostMutation } from "./api/postsApi"
-
-type IForm = {
-    title: string
-    text: string
-}
+import ContentEditable from "react-contenteditable"
 
 const AddPostPage: React.FC = () => {
-    const { register, handleSubmit, reset } = useForm<IForm>()
-    const [addPost, { isSuccess }] = useAddPostMutation()
+    const initialEditorFields = { title: "Title", body: "Add some text..." }
+    const editorTitle = useRef(initialEditorFields.title)
+    const editorBody = useRef(initialEditorFields.body)
+    const [addPost] = useAddPostMutation()
 
-    const submit: SubmitHandler<IForm> = (data) => {
-        addPost(data)
-        reset()
+    const handleTitleChange = (e: ContentEditableEvent) => {
+        editorTitle.current = e.target.value
     }
 
-    const error: SubmitErrorHandler<IForm> = (data) => {
-        console.log(data)
+    const handleBodyChange = (e: ContentEditableEvent) => {
+        editorBody.current = e.target.value
+    }
+
+    const handleClick = async () => {
+        await addPost({
+            title: editorTitle.current,
+            text: editorBody.current,
+        }).then((res) => console.log(res))
+
+        editorTitle.current = initialEditorFields.title
+        editorBody.current = initialEditorFields.body
     }
 
     return (
-        <div className={styles.container}>
-            <form onSubmit={handleSubmit(submit)}>
-                <input
-                    type="text"
-                    className={styles.titleInput}
-                    {...register("title", { required: true, maxLength: 50 })}
+        <section className={styles.section}>
+            <h1 className={styles.title}>Write a new post</h1>
+            <div className={styles.editor}>
+                <ContentEditable
+                    onChange={handleTitleChange}
+                    html={editorTitle.current}
                 />
-                <input
-                    type="text"
-                    className={styles.bodyInput}
-                    {...register("text", { required: true, maxLength: 50 })}
+                <ContentEditable
+                    onChange={handleBodyChange}
+                    html={editorBody.current}
                 />
-                <button className={styles.submitButton}>Submit</button>
-            </form>
-        </div>
+                <button className={styles.submitButton} onClick={handleClick}>
+                    Submit
+                </button>
+            </div>
+        </section>
     )
 }
 

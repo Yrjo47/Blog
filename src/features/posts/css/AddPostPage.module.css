@@ -1,7 +1,17 @@
-.container {
+.section {
 }
 
-.form {
+.title {
+    margin-bottom: 20px;
+}
+
+.editor {
+    width: 100%;
+    background-color: var(--secondary-surface-color);
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border-radius: 15px;
 }
 
 .titleInput {
