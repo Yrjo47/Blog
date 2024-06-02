@@ -5,7 +5,7 @@ import { useAddPostMutation } from "./api/postsApi"
 import ContentEditable from "react-contenteditable"
 
 const AddPostPage: React.FC = () => {
-    const initialEditorFields = { title: "Title", body: "Add some text..." }
+    const initialEditorFields = { title: "", body: "" }
     const editorTitle = useRef(initialEditorFields.title)
     const editorBody = useRef(initialEditorFields.body)
     const [addPost] = useAddPostMutation()
@@ -31,18 +31,30 @@ const AddPostPage: React.FC = () => {
     return (
         <section className={styles.section}>
             <h1 className={styles.title}>Write a new post</h1>
-            <div className={styles.editor}>
-                <ContentEditable
-                    onChange={handleTitleChange}
-                    html={editorTitle.current}
-                />
-                <ContentEditable
-                    onChange={handleBodyChange}
-                    html={editorBody.current}
-                />
-                <button className={styles.submitButton} onClick={handleClick}>
-                    Submit
-                </button>
+            <div className={styles.post}>
+                <div className={styles.content}>
+                    <ContentEditable
+                        className={styles.postTitle}
+                        onChange={handleTitleChange}
+                        html={editorTitle.current}
+                        tagName="h1"
+                        data-placeholder="Example"
+                    />
+                    <ContentEditable
+                        className={styles.postBody}
+                        onChange={handleBodyChange}
+                        html={editorBody.current}
+                        data-placeholder="Add some text..."
+                    />
+                </div>
+                <div className={styles.bar}>
+                    <button
+                        className={styles.submitButton}
+                        onClick={handleClick}
+                    >
+                        Submit
+                    </button>
+                </div>
             </div>
         </section>
     )

@@ -36,3 +36,7 @@ a {
 ul {
     list-style: none;
 }
+
+[contenteditable] {
+    outline: 0px solid transparent;
+}
