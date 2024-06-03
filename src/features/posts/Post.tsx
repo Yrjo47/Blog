@@ -45,8 +45,14 @@ const Post: React.FC = () => {
         <div className={styles.postWrapper}>
             <section className={styles.postSection}>
                 <div className={styles.content}>
-                    <h2 className={styles.title}>{post?.title}</h2>
-                    <p className={styles.text}>{post?.text}</p>
+                    <h2
+                        className={styles.title}
+                        dangerouslySetInnerHTML={{ __html: post?.title || "" }}
+                    ></h2>
+                    <p
+                        className={styles.text}
+                        dangerouslySetInnerHTML={{ __html: post?.text || "" }}
+                    ></p>
                 </div>
             </section>
             <section className={styles.commentsSection}>

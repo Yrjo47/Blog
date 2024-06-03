@@ -12,8 +12,14 @@ const PostExcerpt: React.FC<IProps> = (props: IProps) => {
     return (
         <article className={styles.post}>
             <div className={styles.content}>
-                <h2 className={styles.title}>{props.title}</h2>
-                <p className={styles.text}>{props.text}</p>
+                <h2
+                    className={styles.title}
+                    dangerouslySetInnerHTML={{ __html: props.title }}
+                ></h2>
+                <p
+                    className={styles.text}
+                    dangerouslySetInnerHTML={{ __html: props.text }}
+                ></p>
             </div>
             <div className={styles.bar}>
                 <span className={styles.comments}>XXX comments</span>
