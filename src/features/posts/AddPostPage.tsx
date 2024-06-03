@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import styles from "./css/AddPostPage.module.css"
+import styles from "./styles/AddPostPage.module.css"
 import { ContentEditableEvent } from "react-contenteditable"
 import { useAddPostMutation } from "./api/postsApi"
 import ContentEditable from "react-contenteditable"

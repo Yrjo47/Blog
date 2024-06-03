@@ -30,7 +30,7 @@ export const postsApi = createApi({
             query: (body) => ({
                 url: `comments`,
                 method: "POST",
-                body: body.text,
+                body,
             }),
             invalidatesTags: ["Comment"],
         }),

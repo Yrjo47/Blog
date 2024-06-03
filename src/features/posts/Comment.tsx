@@ -1,5 +1,5 @@
 import React from "react"
-import style from "./css/Comment.module.css"
+import style from "./styles/Comment.module.css"
 
 type IProps = {
     author: string

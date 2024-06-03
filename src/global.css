@@ -37,6 +37,10 @@ ul {
     list-style: none;
 }
 
+input {
+    outline: none;
+}
+
 [contenteditable] {
     outline: 0px solid transparent;
 }

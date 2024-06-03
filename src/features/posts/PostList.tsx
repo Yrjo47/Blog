@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./css/PostList.module.css"
+import styles from "./styles/PostList.module.css"
 import PostExcerpt from "./PostExcerpt"
 import { useGetAllPostsQuery } from "./api/postsApi"
 

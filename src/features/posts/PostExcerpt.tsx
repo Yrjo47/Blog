@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./css/PostExcerpt.module.css"
+import styles from "./styles/PostExcerpt.module.css"
 import { Link } from "react-router-dom"
 
 type IProps = {

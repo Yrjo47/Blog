@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./css/Post.module.css"
+import styles from "./styles/Post.module.css"
 import Comment from "./Comment"
 import { useParams } from "react-router-dom"
 import {
