@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { IPost, IPostMutation, IComment } from "./types"
+import { IPost, IPostMutation, IComment, ICommentMutation } from "./types"
 
 export const postsApi = createApi({
     reducerPath: "postsApi",
@@ -26,7 +26,7 @@ export const postsApi = createApi({
             query: (postId) => `comments?postId=${postId}`,
             providesTags: ["Comment"],
         }),
-        addCommentByPostId: builder.mutation<IComment, IComment>({
+        addCommentByPostId: builder.mutation<IComment, ICommentMutation>({
             query: (body) => ({
                 url: `comments`,
                 method: "POST",

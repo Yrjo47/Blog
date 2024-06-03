@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import styles from "./styles/Post.module.css"
 import Comment from "./Comment"
 import { useParams } from "react-router-dom"
@@ -7,9 +7,12 @@ import {
     useGetPostByIdQuery,
 } from "./api/postsApi"
 import PageNotFound from "../../components/PageNotFound"
+import { useAddCommentByPostIdMutation } from "./api/postsApi"
 
 const Post: React.FC = () => {
     const { id } = useParams() as { id: string }
+    const [addComment] = useAddCommentByPostIdMutation()
+    const commentRef = useRef<HTMLInputElement>(null)
     const {
         data: post,
         isFetching: isFetchingPost,
@@ -20,6 +23,16 @@ const Post: React.FC = () => {
         isFetching: isFetchingComments,
         isError: isCommentsError,
     } = useGetCommentsByPostIdQuery(id)
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        addComment({
+            author: "Author",
+            text: commentRef.current?.value as string,
+            postId: id,
+        })
+        if (commentRef.current !== null) commentRef.current.value = ""
+    }
 
     if (isFetchingPost || isFetchingComments) return <div>Loading...</div>
     if (isPostError)
@@ -41,14 +54,18 @@ const Post: React.FC = () => {
                     Comments{" "}
                     <span className={styles.number}>{comments?.length}</span>
                 </h3>
-                <div className={styles.bar}>
+                <form onSubmit={handleSubmit} className={styles.bar}>
                     <input
                         type="text"
+                        ref={commentRef}
                         placeholder="Leave a comment..."
                         className={styles.commentInput}
+                        required={true}
                     />
-                    <button className={styles.commentButton}>&#8594;</button>
-                </div>
+                    <button type="submit" className={styles.commentButton}>
+                        &#8594;
+                    </button>
+                </form>
                 <div className={styles.commentsBlock}>
                     {isCommentsError ? (
                         <div> Comments error </div>
